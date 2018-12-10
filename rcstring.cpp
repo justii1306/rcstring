@@ -122,12 +122,12 @@ rcstring rcstring::Left(int n)
 {
     rcstring temp;
     temp="";
-    for (int i = 0; (unsigned)i < this->data->size; i++)
+    int limit = std::min((unsigned)n, this->data->size);
+    for (int i = 0; (unsigned)i < (unsigned)limit; i++)
     {
         temp+=" ";
     }
     data = data->detach();
-    int limit = std::min((unsigned)n, this->data->size);
     for (int i = 0; (unsigned)i<(unsigned)limit; i++)
 	{
         temp.data->s[i] = this->data->s[i];
